@@ -1,1 +1,11 @@
 <h1>All Articles</h1>
+<ul>
+<% @articles.map do |article|%>
+    <li>
+        <div>
+            <h1 class="title"><%= article.title%></h1>
+            <p class="description"><%= article.description%></p>
+        </div>
+    </li>
+<%end%>
+</ul>
