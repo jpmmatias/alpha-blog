@@ -11,6 +11,9 @@
   </head>
 
   <body>
+    <% flash.map do |name,msg| %>
+      <%= msg%>
+    <%end%>
     <%= yield %>
   </body>
 </html>
