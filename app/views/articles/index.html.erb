@@ -1,21 +1,29 @@
-<h1>All Articles</h1>
-<ul>
-<% @articles.map do |article|%>
-    <li>
-    <div>
-        <div>
-            <h1 class="title"><%= link_to article.title, article_path(article.id) %></h1>
-            <p class="description"><%= article.description%></p>
-        </div>
-        <div class="buttons">
-            <%= link_to "Delete", article_path(article.id) , method: :delete , data:{confirm: "Are you sure?"} %>
-            <%= link_to "Edit", "#{article_path(article.id)}/edit "%>
+
+<%= link_to "Creat new article", "articles/new", class:"btn btn-primary " %>
+<div id="page-content">
+<h1 class='text-center mt-4'>All Articles</h1>
+<div class="container">
+    <% @articles.map do |article|%>
+    <div class="row justify-content-center">
+        <div class="col-8 mt-4 mb-2">
+            <div class="card text-center">
+                <div class="card-header">
+                    <%= link_to article.title, article_path(article.id), class:'link-dark display-4 text-decoration-none' %>
+                </div>
+            <div class="card-body">
+                <p class="card-text"><%= article.description%></p>
+         <div class="buttons">
+            <%= link_to "Delete", article_path(article.id) , method: :delete , data:{confirm: "Are you sure?"}, class: "btn btn-danger" %>
+            <%= link_to "Edit", "#{article_path(article.id)}/edit ", class: "btn btn-secondary" %>
         </div>
     </div>
-    </li>
-<%end%>
-</ul>
-<p>
-<%= link_to "Creat new article", "articles/new" %>
-</p>
+    <div class="card-footer text-muted">
+        <%= article.created_at%>
+    </div>
+    </div>
+</div>
+</div>
 
+<%end%>
+</div>
+</div>
